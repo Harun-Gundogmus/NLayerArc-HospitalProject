@@ -1,0 +1,25 @@
+﻿@using EntityLayer;
+@model EntityLayer.Personel;
+@{
+    ViewData["Title"] = "PersonelGuncelle";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<form asp-action="HastaneGuncelle" asp-controller="Hastane" method="post">
+    <div class="mb-3" style="display:none">
+        <label class="form-label">PERSONEL ID</label>
+        <input readonly asp-for="personel_ID" type="text" class="form-control">
+
+    </div>
+    <div class="mb-3">
+        <label class="form-label">PERSONEL ADI</label>
+        <input asp-for="personel_Adi" type="text" class="form-control">
+
+    </div>
+    <div class="mb-3">
+        <label class="form-label">PERSONEL SOYADI</label>
+        <input type="text" class="form-control" asp-for="personel_Soyadi">
+    </div>
+    <button type="submit" class="btn btn-primary">PERSONEL GÜNCELLE</button>
+</form>
+

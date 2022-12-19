@@ -1,0 +1,20 @@
+﻿@model EntityLayer.Hastane;
+@{
+    ViewData["Title"] = "HastaneEkle";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<h2>HASTANE EKLEME</h2>
+<form asp-action="HastaneEkle" asp-controller="Hastane" method="post">
+    <div class="mb-3">
+        <label class="form-label">HASTANE ADI</label>
+        <input asp-for="hastane_ad" type="text" class="form-control">
+
+    </div>
+    <div class="mb-3">
+        <label class="form-label">HASTANE ŞEHİR</label>
+        <input type="text" class="form-control" asp-for="hastane_sehir">
+    </div>
+    <button type="submit" class="btn btn-primary">HASTANE EKLE</button>
+</form>
+

@@ -1,0 +1,55 @@
+﻿@using EntityLayer;
+@model List<Poliklinik>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<h1>POLİKLİNİK KAYITLARI</h1>
+<div><a asp-action="PoliklinikEkle" asp-controller="Poliklinik" class="btn btn-primary">Personel Ekle</a></div>
+<section class="section">
+    <div class="row">
+        <div class="col-lg-12">
+
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Default Table</h5>
+
+                    <!-- Default Table -->
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Poliklinik ID</th>
+                                <th scope="col">Poliklinik Adı</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var a in Model)
+                            {
+                                <tr>
+                                    <td>@a.poliklinik_ID</td>
+                                    <td>@a.poliklinik_Ad</td>
+
+                                    <td>
+                                        <a onclick="return confirm('Silmek istediğinize eminmisiniz?');" asp-controller="Poliklinik" asp-action="PoliklinikSil" asp-route-id="@a.poliklinik_ID" class="btn btn-danger">sil</a>
+
+                                        <a asp-controller="Poliklinik" asp-action="PoliklinikGuncelle" asp-route-id="@a.poliklinik_ID" class="btn btn-warning">Güncelle</a>
+                                    </td>
+                                    <td>
+                                    </td>
+
+
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                    <!-- End Default Table Example -->
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+

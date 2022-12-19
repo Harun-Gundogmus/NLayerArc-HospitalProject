@@ -1,0 +1,57 @@
+﻿@using EntityLayer;
+@model List<Hastane>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<h1>HASTANE KAYITLARI</h1>
+<div><a asp-action="HastaneEkle" asp-controller="Hastane" class="btn btn-primary">Hastane Ekle</a></div>
+<section class="section">
+    <div class="row">
+        <div class="col-lg-12">
+
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Default Table</h5>
+
+                    <!-- Default Table -->
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Hastane ID</th>
+                                <th scope="col">Hastane Adı</th>
+                                <th scope="col">Hastane Sehir </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var a in Model)
+                            {
+                                <tr>
+                                    <td>@a.hastane_id</td>
+                                    <td>@a.hastane_ad</td>
+                                    <td>@a.hastane_sehir</td>
+
+                                    <td>
+                                        <a onclick="return confirm('Silmek istediğinize eminmisiniz?');" asp-controller="Hastane" asp-action="HastaneSil" asp-route-id="@a.hastane_id" class="btn btn-danger">sil</a>
+
+                                        <a asp-controller="Hastane" asp-action="HastaneGuncelle" asp-route-id="@a.hastane_id" class="btn btn-warning">Güncelle</a>
+                                    </td>
+                                    <td>
+                                    </td>
+
+
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                    <!-- End Default Table Example -->
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+

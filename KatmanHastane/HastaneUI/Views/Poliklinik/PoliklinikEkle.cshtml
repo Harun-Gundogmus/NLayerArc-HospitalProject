@@ -1,0 +1,18 @@
+﻿@model EntityLayer.Poliklinik;
+@{
+    ViewData["Title"] = "PoliklinikEkle";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<h2>Poliklinik Ekle</h2>
+
+<form asp-action="PoliklinikEkle" asp-controller="Poliklinik" method="post">
+    <div class="mb-3">
+        <label class="form-label">POLİKLİNİK ADI</label>
+        <input asp-for="poliklinik_Ad" type="text" class="form-control">
+
+    </div>
+
+    <button type="submit" class="btn btn-primary">POLİKLİNİK EKLE</button>
+</form>
+
